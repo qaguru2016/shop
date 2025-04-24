@@ -14,9 +14,12 @@ Execute the following in MySQL WorkBench
 
 ## How to build fat jar file
 mvn package
-## How to execute the app
-* option1 - java -jar shop.jar
-* option2 - Double click the jar file
+## How to execute the app without security
+java -jar shop-0.0.1-SNAPSHOT.jar --security=false
+
+## How to execute the app with security
+java -jar shop-0.0.1-SNAPSHOT.jar --security=true
+
 ## How to kill the server
 * Find the process id by - ps -ef | grep java
 * Kill the process with - kill -9 <id>

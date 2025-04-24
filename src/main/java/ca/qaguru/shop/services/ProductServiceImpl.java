@@ -1,6 +1,7 @@
 package ca.qaguru.shop.services;
 
 import ca.qaguru.shop.domain.Product;
+import ca.qaguru.shop.exception.ProductNotFoundException;
 import ca.qaguru.shop.repositories.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product findById(UUID uuid) {
         return productRepository.findById(uuid).orElseThrow(()->{
-            throw new RuntimeException("Product not found");
+            throw new ProductNotFoundException("Product not found");
         });
     }
 
@@ -46,6 +47,4 @@ public class ProductServiceImpl implements ProductService {
         productRepository.deleteById(uuid);
 
     }
-
-
 }
