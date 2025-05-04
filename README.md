@@ -32,6 +32,9 @@ java -jar shop-0.0.1-SNAPSHOT.jar --security=true
 * GET "/api/v1/products/{id}" - Find a product
 * DELETE "/api/v1/products/{id}" - Delete a product
 
+## Open API documentation 
+http://localhost:8080/swagger-ui.html
+
 ## How to query data based on UUID
 select * from product where id = UNHEX('d84643a93b7f4752a189df7b03126b75');
 

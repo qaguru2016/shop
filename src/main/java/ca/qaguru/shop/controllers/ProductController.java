@@ -19,7 +19,7 @@ public class ProductController {
     @Autowired
     private final ProductService productService;
 
-    @GetMapping({"","/"})
+    @GetMapping({""})
     @ResponseStatus(HttpStatus.OK)
     public List<Product> findAllProducts(){
         return productService.findAll();
@@ -29,7 +29,8 @@ public class ProductController {
     public ResponseEntity<Product> findAProduct(@PathVariable UUID id){
         return new ResponseEntity<>(productService.findById(id),HttpStatus.OK) ;
     }
-    @PostMapping({"","/"})
+
+    @PostMapping({""})
     public ResponseEntity saveNewProduct(@RequestBody Product product){
         Product savedProduct = productService.saveNewProduct(product);
         HttpHeaders httpHeaders = new HttpHeaders();
@@ -46,6 +47,11 @@ public class ProductController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable UUID id){
         productService.deleteById(id);
+    }
+    @GetMapping("/category")
+    public List<Product> findAProductsByBrandAndCategory(@RequestParam String category,
+                                                                @RequestParam String brand){
+        return productService.findByCategoryAndBrand(category,brand) ;
     }
 
 }

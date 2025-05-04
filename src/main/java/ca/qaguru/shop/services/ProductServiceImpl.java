@@ -47,4 +47,10 @@ public class ProductServiceImpl implements ProductService {
         productRepository.deleteById(uuid);
 
     }
+
+    @Override
+    public List<Product> findByCategoryAndBrand(String category, String brand) {
+        return productRepository.findByCategoryAndBrand(category, brand);
+    }
+
 }
