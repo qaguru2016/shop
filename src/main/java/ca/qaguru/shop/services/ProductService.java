@@ -12,5 +12,5 @@ public interface ProductService {
     Product findById(UUID uuid);
     void updateById(UUID uuid, Product product);
     void deleteById(UUID uuid);
-
+    List<Product> findByCategoryAndBrand(String category, String brand);
 }

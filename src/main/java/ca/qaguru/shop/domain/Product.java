@@ -22,7 +22,9 @@ public class Product {
     @GeneratedValue(generator = "uuid2")
     @Column(columnDefinition = "BINARY(16)")
     private UUID id;
-    private String name;
+    private String brand;
+    private String category;
+    private String model;
     private String description;
     private Float price;
 
