@@ -38,6 +38,18 @@ http://localhost:8080/swagger-ui.html
 ## How to query data based on UUID
 select * from product where id = UNHEX('d84643a93b7f4752a189df7b03126b75');
 
+
+## FreeDB.tech 
+# Connection login
+email - pradeep.pp@gmail.com
+tester/	tester#123
+￼
+DB Connection details￼
+	 Host - sql.freedb.tech
+	 Port - 3306
+	 DB - freedb_myonlineshop
+	 user - freedb_automation/PHDT!MyHU7*@!kG
+
 [![CircleCI](https://circleci.com/gh/pradeepparambil/shop.svg?style=svg)](https://circleci.com/gh/pradeepparambil/shop)
 
 

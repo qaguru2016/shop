@@ -1,17 +1,12 @@
-# Use official JDK 21 image
-FROM eclipse-temurin:21-jdk-alpine
-
-# Set the working directory
+# Stage 1: Build with Maven and JDK 21
+FROM maven:3.9.4-eclipse-temurin-21 AS builder
 WORKDIR /app
+COPY . .
+RUN mvn clean package -DskipTests
 
-# Copy the fat jar
-COPY target/shop-1.0.jar app.jar
-
-# Expose the port your Spring Boot app runs on
+# Stage 2: Run with minimal JDK
+FROM eclipse-temurin:21-jdk
+WORKDIR /app
+COPY --from=builder /app/target/*.jar app.jar
 EXPOSE 8080
-
-# Run the jar
-ENTRYPOINT ["java", "-jar", "/app/app.jar"]
-
-# Optionally hard-code the active profile (not needed if using Render env vars)
-ENV SPRING_PROFILES_ACTIVE=prod
+ENTRYPOINT ["java", "-jar", "app.jar"]
